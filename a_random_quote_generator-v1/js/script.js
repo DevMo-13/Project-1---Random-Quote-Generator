@@ -1,12 +1,12 @@
 /******************************************
 Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
+--aiming for exceeds expectations--
 ******************************************/
 
 /** 
- * `quotes` array 
- * lists various tv / movie quotes.
- * Some citations are commented out in order to 
+ * `quotes` array lists various tv / movie quotes.
+ * Some years are commented out in order to 
  * highlight how the conditional statements in the
  * `printQuote` function work.  
 **/
@@ -15,26 +15,28 @@ let quotes = [
   {
       quote: `"Welcome to the real world. It sucks. You're gonna love it!"`,
       source: 'Monica',
-      //citation: `Friends: "The One Where Monica Gets a Roommate"`,
-      year: 1994
+      citation: `Friends: "The One Where Monica Gets a Roommate"`,
+      //year: 1994
   },
   {
       quote: `"Do. Or do not. There is no try."`,
       source: 'Yoda',
       citation: 'Star Wars: Episode V - The Empire Strikes Back',
       year: 1980,
+      tags: 'film',
   },
   {
       quote: `"We are what they grow beyond. That is the true burden of all masters."`,
       source: 'Yoda',
       citation: 'Star Wars: Episode VIII - The Last Jedi',
       year: 2017,
+      tags: 'film',
   },
   {
       quote: `"I once worked with a guy for three years and never learned his name. Best friend I ever had. We still never talk sometimes."`,
       source: 'Ron Swanson',
-      //citation: `Parks and Recreation: "Flu Season"`,
-      year: 2011,
+      citation: `Parks and Recreation: "Flu Season"`,
+      //year: 2011,
   },
   {
       quote: `“Never half-ass two things. Whole-ass one thing.”`,
@@ -51,8 +53,8 @@ let quotes = [
   {
       quote: `"I need you to be careful and efficient. And remember: If I am harsh with you, it’s only because you’re doing it wrong."`,
       source: 'Monica',
-      //citation: `Friends: "The One with Rachel's Going Away Party"`,
-      year: 2004,
+      citation: `Friends: "The One with Rachel's Going Away Party"`,
+      //year: 2004,
   },
   {
       quote: `"You live only as long as the last person who remembers you."`,
@@ -69,10 +71,12 @@ let quotes = [
   {
       quote: `“There is only one god and his name is Death, and there is only one thing we say to Death: ‘Not today.’”`,
       source: 'Syrio Forel',
-      //citation: `Game of Thrones: "A Golden Crown"`,
-      year: 2011,
+      citation: `Game of Thrones: "A Golden Crown"`,
+      //year: 2011,
   },
 ]
+
+// console.log(quotes); -- use this to test / log the array
 
 /**
  * `getRandomQuote` function
@@ -80,8 +84,10 @@ let quotes = [
  **/
 
 function getRandomQuote() {
-    const randomNumber = Math.floor( Math.random () * quotes.length) + 1;
+    const randomNumber = Math.floor( Math.random () * quotes.length);
     const randomQuoteObject = quotes[randomNumber];
+    // console.log(randomNumber); -- use this to test / log the random number generated
+    // console.log(randomQuoteObject); -- use this to test / log the random quote object
     return randomQuoteObject
 }
 
@@ -97,7 +103,14 @@ function printQuote() {
         randomQuoteHTML += `<span class="citation">${randomQuote.citation}</span>`;
      if (randomQuote.year !== undefined) 
         randomQuoteHTML += `<span class="year">${randomQuote.year}</span>`;
+     if (randomQuote.tags !== undefined) 
+        randomQuoteHTML += `<span class="tags">, (${randomQuote.tags})</span>`;
      randomQuoteHTML += `</p>`
+     //console.log(randomQuote.quote); -- use this to test / log the quote
+     //console.log(randomQuote.source); -- use this to test / log the source
+     //console.log(randomQuote.citation); -- use this to test / log the citation
+     //console.log(randomQuote.year); -- use this to test / log the year (if applicable)
+     //console.log(randomQuote.tags); -- use this to test / log the tags (if applicable)
      return document.getElementById('quote-box').innerHTML = randomQuoteHTML;
 }
 
