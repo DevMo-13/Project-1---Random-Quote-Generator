@@ -5,7 +5,10 @@ project 1 - A Random Quote Generator
 
 /** 
  * `quotes` array 
- * lists various tv / movie quotes. 
+ * lists various tv / movie quotes.
+ * Some citations are commented out in order to 
+ * highlight how the conditional statements in the
+ * `printQuote` function work.  
 **/
 
 let quotes = [
