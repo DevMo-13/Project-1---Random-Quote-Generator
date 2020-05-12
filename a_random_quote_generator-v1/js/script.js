@@ -81,7 +81,7 @@ let quotes = [
 /**
  * `getRandomQuote` function
  * returns a random quote object from the `quotes` array above.
- **/
+**/
 
 function getRandomQuote() {
     const randomNumber = Math.floor( Math.random () * quotes.length);
@@ -94,7 +94,12 @@ function getRandomQuote() {
 /**
  * `printQuote` function
  * returns the random quote object as an HTML string.
- **/
+ * 
+ * The `getRandomBgColor` function within it returns a 
+ * random color in RGB format and changes the 
+ * background color of the page each time the 
+ * `printQuote` function is called.
+**/
 
 function printQuote() {
      const randomQuote = getRandomQuote();
@@ -109,11 +114,27 @@ function printQuote() {
      //console.log(randomQuote.quote); -- use this to test / log the quote
      //console.log(randomQuote.source); -- use this to test / log the source
      //console.log(randomQuote.citation); -- use this to test / log the citation
-     //console.log(randomQuote.year); -- use this to test / log the year (if applicable)
-     //console.log(randomQuote.tags); -- use this to test / log the tags (if applicable)
+     //console.log(randomQuote.year); -- use this to test / log the year (when applicable)
+     //console.log(randomQuote.tags); -- use this to test / log the tags (when applicable)
+
+/** 
+ * The following `getRandomBgColor` function code is adapted from 
+ * https://www.w3resource.com/javascript-exercises/javascript-math-exercise-40.php
+**/ 
+
+     function getRandomBgColor() {
+        const x = Math.floor(Math.random() * 256);
+        const y = Math.floor(Math.random() * 256);
+        const z = Math.floor(Math.random() * 256);
+        const color = `rgb(${x},${y},${z})`;
+        // console.log(color); -- use this to test / log the color output
+        document.body.style.background = color;
+    }
+     getRandomBgColor();
      return document.getElementById('quote-box').innerHTML = randomQuoteHTML;
 }
 
 printQuote();
+setInterval(printQuote, 5000); // -- This method runs the `printQuote` function automatically every 5 seconds.
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
