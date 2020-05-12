@@ -75,7 +75,7 @@ let quotes = [
 **/
 
 function getRandomQuote() {
-    const randomNumber = Math.floor( Math.random () * quotes.length);
+    const randomNumber = Math.floor(Math.random () * quotes.length);
     const randomQuoteObject = quotes[randomNumber];
     return randomQuoteObject
 }
@@ -94,13 +94,17 @@ function getRandomQuote() {
 
 function printQuote() {
      const randomQuote = getRandomQuote();
-     let randomQuoteHTML = `<p class="quotes">${randomQuote.quote}</p><p class="source">${randomQuote.source}`;
-     if (randomQuote.citation !== undefined) 
+     let randomQuoteHTML = `<p class="quotes">${randomQuote.quote}</p>`;
+     randomQuoteHTML += `<p class="source">${randomQuote.source}`;
+     if (randomQuote.citation !== undefined) {
         randomQuoteHTML += `<span class="citation">${randomQuote.citation}</span>`;
-     if (randomQuote.year !== undefined) 
+     }
+     if (randomQuote.year !== undefined) {
         randomQuoteHTML += `<span class="year">${randomQuote.year}</span>`;
-     if (randomQuote.tags !== undefined) 
+     }
+     if (randomQuote.tags !== undefined) {
         randomQuoteHTML += `<span class="tags">, (${randomQuote.tags})</span>`;
+     }
      randomQuoteHTML += `</p>`
      function getRandomBgColor() {
         const x = Math.floor(Math.random() * 256);
