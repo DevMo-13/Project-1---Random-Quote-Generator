@@ -1,6 +1,6 @@
 /******************************************
-Treehouse FSJS Techdegree:
-project 1 - A Random Quote Generator
+Treehouse Techdegree:
+FSJS project 1 - A Random Quote Generator
 --aiming for exceeds expectations--
 ******************************************/
 
