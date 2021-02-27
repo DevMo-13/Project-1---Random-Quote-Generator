@@ -3,7 +3,7 @@
 
 App that displays random quotes.
 
-Live link to the project can be found here: https://devmo-13.github.io/random-quote-generator/.
+###### Live link to the project can be found here: https://devmo-13.github.io/random-quote-generator/.
 
 ---
 
